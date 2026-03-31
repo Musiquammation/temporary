@@ -11,8 +11,13 @@ import { completions, assignTasksToSlots, clearCompletions } from './state/compl
 import { taskTypes } from './config/taskTypes.js';
 import { isoDateKey } from './utils/date.js';
 
+<<<<<<< HEAD
 import { initTimes, renderGrid } from './ui/grid.js';
 import { openTutorial } from './ui/openTutorial.js';
+=======
+import { initTimes } from './ui/grid.js';
+import { renderGrid } from './ui/grid.js';
+>>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 import { renderTaskList, updatePlacementButtonsState } from './ui/taskPanel.js';
 import { openDay, updateFloatingButtonVisibility, closeSideMenu, closeTaskPanel } from './ui/layout.js';
 import { initTaskTypes } from './ui/taskEditor.js';
@@ -30,11 +35,14 @@ import './ui/executionView.js';
 import './ui/timer.js';
 import './ui/settings.js';
 import './ui/layout.js';
+<<<<<<< HEAD
 import { initNotifications } from './ui/notifications.js';
 
 
 
 const BEACON_ADDRESS = "https://5.51.5.55.sslip.io:8273/planifyUserTracker";
+=======
+>>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 
 // ─── Algo / placement ──────────────────────────────────────────────────────
 
@@ -50,7 +58,11 @@ async function placeTasks(): Promise<void> {
   const startTime = Date.now();
   const loadingElapsed = algoLoading.querySelector<HTMLElement>('.loading-elapsed')!;
   const timer = setInterval(() => {
+<<<<<<< HEAD
     loadingElapsed.textContent = `Elapsed time : ${((Date.now() - startTime) / 1000).toFixed(1)}s`;
+=======
+    loadingElapsed.textContent = `Temps écoulé : ${((Date.now() - startTime) / 1000).toFixed(1)}s`;
+>>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
   }, 100);
 
   try {
@@ -124,9 +136,14 @@ function sendUserTrack(): void {
     crypto.getRandomValues(bytes);
     hash = [...bytes].map(b => b.toString(16).padStart(2, '0')).join('');
     localStorage.setItem('userTrackHash', hash);
+<<<<<<< HEAD
     openTutorial();
   }
   navigator.sendBeacon(BEACON_ADDRESS, hash);
+=======
+  }
+  navigator.sendBeacon('https://5.51.5.55:8273/planifyUserTracker', JSON.stringify({ hash }));
+>>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 }
 
 // ─── Bootstrap ─────────────────────────────────────────────────────────────
@@ -146,4 +163,7 @@ setTimeout(() => {
 }, 100);
 
 sendUserTrack();
+<<<<<<< HEAD
 initNotifications();
+=======
+>>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b

@@ -80,14 +80,20 @@ export function updateSlotInfo(slot: Slot): void {
 
 	slotInfo.innerHTML = `
 		<div class="slot-info-row">
+<<<<<<< HEAD
 			<span class="slot-info-label">Name:</span>
 			<input type="text" class="editable-name" id="slotNameInput" value="${slot.name ?? 'Slot'}">
+=======
+			<span class="slot-info-label">Nom:</span>
+			<input type="text" class="editable-name" id="slotNameInput" value="${slot.name ?? 'Créneau'}">
+>>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 		</div>
 		<div class="slot-info-row">
 			<span class="slot-info-label">Date:</span>
 			<input type="date" class="editable-date" id="slotDateInput" value="${formatDateForInput(viewDate)}">
 		</div>
 		<div class="slot-info-row">
+<<<<<<< HEAD
 			<span class="slot-info-label">Start time:</span>
 			<input type="time" class="editable-time" id="startTimeInput" value="${minutesToTime(slot.start)}">
 		</div>
@@ -97,6 +103,17 @@ export function updateSlotInfo(slot: Slot): void {
 		</div>
 		<div class="slot-info-row">
 			<span class="slot-info-label">Duration:</span>
+=======
+			<span class="slot-info-label">Heure début:</span>
+			<input type="time" class="editable-time" id="startTimeInput" value="${minutesToTime(slot.start)}">
+		</div>
+		<div class="slot-info-row">
+			<span class="slot-info-label">Heure fin:</span>
+			<input type="time" class="editable-time" id="endTimeInput" value="${minutesToTime(slot.end)}">
+		</div>
+		<div class="slot-info-row">
+			<span class="slot-info-label">Durée:</span>
+>>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 			<span class="duration-display">${formatDuration(duration)}</span>
 		</div>
 		${tasksHtml}
