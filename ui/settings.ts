@@ -12,15 +12,12 @@ import { initTaskTypes } from './taskEditor.js';
 import { openSettingsPanelUI, closeSettingsPanelUI, updateFloatingButtonVisibility } from './layout.js';
 import { canEditData } from '../algo/runAlgo.js';
 import { saveTaskTypes, saveTasks, saveStore } from '../services/storage.js';
-<<<<<<< HEAD
 import {
   loadSlotOffsets, saveSlotOffsets,
   loadDailyTime,   saveDailyTime,
   requestPermission, getPermissionStatus,
   rescheduleSlotReminders, rescheduleDailyReminder,
 } from './notifications.js';
-=======
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 
 // ─── DOM refs ──────────────────────────────────────────────────────────────
 const settingsPanel    = document.getElementById('settingsPanel')!;
@@ -32,7 +29,6 @@ const importMenuItems  = document.getElementById('importMenuItems')!;
 const closeSettingsBtn = document.getElementById('closeSettingsPanel')!;
 const settingsBtn      = document.getElementById('settingsBtn')!;
 
-<<<<<<< HEAD
 // Notification DOM refs
 const slotOffsetsList       = document.getElementById('slotOffsetsList')!;
 const newOffsetInput        = document.getElementById('newOffsetInput') as HTMLInputElement;
@@ -61,9 +57,6 @@ function initCollapsibles(): void {
 }
 
 // ─── Task types render ─────────────────────────────────────────────────────
-=======
-// ─── Render ────────────────────────────────────────────────────────────────
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 
 export function renderTaskTypesList(): void {
   taskTypesList.innerHTML = '';
@@ -92,11 +85,7 @@ export function renderTaskTypesList(): void {
   });
 }
 
-<<<<<<< HEAD
 // ─── Task type CRUD ────────────────────────────────────────────────────────
-=======
-// ─── CRUD ──────────────────────────────────────────────────────────────────
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 
 function updateTaskTypeColor(index: number, newColor: string): void {
   if (!canEditData()) return;
@@ -116,11 +105,7 @@ function updateTaskTypeName(index: number, newName: string): void {
   if (!newName || newName === taskTypes[index].name) return;
 
   if (taskTypes.some((t, i) => i !== index && t.name === newName)) {
-<<<<<<< HEAD
     alert("This name already exists");
-=======
-    alert('Ce nom de type existe déjà !');
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
     renderTaskTypesList();
     return;
   }
@@ -148,11 +133,7 @@ function deleteTaskType(index: number): void {
 
   const tasksWithType = tasks.filter(t => t.type === typeToDelete.name);
   if (tasksWithType.length > 0) {
-<<<<<<< HEAD
     if (!confirm(`Warning! ${tasksWithType.length} task(s) of type "${typeToDelete.name}" will be deleted.\n\nDo you want to continue?`)) return;
-=======
-    if (!confirm(`Attention ! ${tasksWithType.length} tâche(s) de type "${typeToDelete.name}" seront supprimées.\n\nVoulez-vous continuer ?`)) return;
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
   }
 
   const slotsWithOnlyThis: object[] = [];
@@ -166,11 +147,7 @@ function deleteTaskType(index: number): void {
     }
   });
   if (slotsWithOnlyThis.length > 0) {
-<<<<<<< HEAD
     alert(`Cannot remove this kind of slots : ${slotsWithOnlyThis.length} slot(s) would no longer have any type with a preference > 0%.`);
-=======
-    alert(`Impossible de supprimer ce type : ${slotsWithOnlyThis.length} créneau(x) n'auraient plus aucun type avec une préférence > 0%.`);
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
     return;
   }
 
@@ -200,11 +177,7 @@ export function addNewTaskType(): void {
   if (!canEditData()) return;
 
   const newType = {
-<<<<<<< HEAD
     name: `New type ${taskTypes.length + 1}`,
-=======
-    name: `Nouveau type ${taskTypes.length + 1}`,
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
     color: `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`,
   };
   taskTypes.push(newType);
@@ -240,18 +213,13 @@ function importPreset(preset: typeof importableTypes[0]): void {
   saveTaskTypes(); saveTasks();
   importMenu.classList.remove('open');
   renderTaskTypesList(); renderTaskList(); initTaskTypes();
-<<<<<<< HEAD
   alert(`Configuration "${preset.name}" successfully imported!`);
-=======
-  alert(`Configuration "${preset.name}" importée avec succès !`);
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 }
 
 function toggleImportMenu(): void {
   importMenu.classList.toggle('open');
 }
 
-<<<<<<< HEAD
 // ─── Notification: slot offsets ────────────────────────────────────────────
 
 function renderSlotOffsets(): void {
@@ -376,19 +344,13 @@ dailyTimeInput.addEventListener('change', () => {
 });
 
 // ─── Main event listeners ──────────────────────────────────────────────────
-=======
-// ─── Event listeners ───────────────────────────────────────────────────────
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 
 settingsBtn.addEventListener('click', e => {
   e.stopPropagation();
   openSettingsPanelUI();
   renderTaskTypesList();
   initImportMenu();
-<<<<<<< HEAD
   initNotificationUI();
-=======
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 });
 
 closeSettingsBtn.addEventListener('click', e => { e.stopPropagation(); closeSettingsPanelUI(); });
@@ -414,9 +376,6 @@ document.addEventListener('click', e => {
     e.stopPropagation();
   }
 });
-<<<<<<< HEAD
 
 // Init collapsibles on module load
 initCollapsibles();
-=======
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b

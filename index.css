@@ -1510,7 +1510,6 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 	font-size: 12px;
 	color: var(--muted);
 }
-<<<<<<< HEAD
 
 
 
@@ -1832,5 +1831,3 @@ input[type="time"]::-webkit-calendar-picker-indicator {
 	background: rgba(0, 0, 0, 0.5);
 	z-index: -1;
 }
-=======
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b

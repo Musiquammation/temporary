@@ -53,11 +53,7 @@ export function renderGrid(): void {
       el.style.background = `linear-gradient(90deg, ${slotColor}16, ${slotColor}08)`;
     }
 
-<<<<<<< HEAD
     const titleText = (slot.name ?? 'Slot') + (slot.done ? ' ✓' : '');
-=======
-    const titleText = (slot.name ?? 'Créneau') + (slot.done ? ' ✓' : '');
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
     el.innerHTML = `<div class="title">${titleText}</div><div class="time">${minutesToTime(slot.start)} — ${minutesToTime(slot.end)}</div>`;
 
     el.addEventListener('mousedown', e => startSlotDrag(e as MouseEvent, slot, el));

@@ -27,11 +27,7 @@ let currentTaskIndex = 0;
 export function startExecution(slot: Slot): void {
   const tasksInSlot = completions.get(slot) ?? [];
   if (tasksInSlot.length === 0) {
-<<<<<<< HEAD
     alert('No tasks assigned to this slot');
-=======
-    alert('Aucune tâche assignée à ce créneau');
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
     return;
   }
 
@@ -43,11 +39,7 @@ export function startExecution(slot: Slot): void {
   document.getElementById('sideMenu')!.classList.remove('open');
   updateFloatingButtonVisibility();
 
-<<<<<<< HEAD
   executionSlotName.textContent = slot.name ?? 'Slot';
-=======
-  executionSlotName.textContent = slot.name ?? 'Créneau';
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
   executionSlotTime.textContent = `${minutesToTime(slot.start)} — ${minutesToTime(slot.end)}`;
 
   _renderTasksList();
@@ -73,13 +65,8 @@ function _startNextTask(): void {
   }
 
   const task = executionTasks[currentTaskIndex];
-<<<<<<< HEAD
   taskCounter.textContent   = `Task ${currentTaskIndex + 1}/${executionTasks.length}`;
   currentTaskName.textContent = task.name ?? 'Untitled task';
-=======
-  taskCounter.textContent   = `Tâche ${currentTaskIndex + 1}/${executionTasks.length}`;
-  currentTaskName.textContent = task.name ?? 'Tâche sans nom';
->>>>>>> 397a959b9d532ec1b599d3db3a02cc4e4224f26b
 
   startTimer(task.duration * 60, _moveToNextTask);
   _renderTasksList();
